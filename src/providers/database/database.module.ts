@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common';
-import { TypeOrmModule } from '@nestjs/typeorm';
+import { TypeOrmModule } from '@nestjs/typeorm'; // Ensure this import is correct and the package is installed
 import { env } from '../../config/env';
 import { User } from './entities/users.entity';
 
@@ -14,7 +14,7 @@ import { User } from './entities/users.entity';
         password: env.db.pass,
         database: env.db.name,
         ssl: env.db.ssl ? { rejectUnauthorized: false } : false,
-        entities: [User],               // add more entities here
+        entities: [User], // add more entities here
         logging: env.typeorm.logging,
         synchronize: env.typeorm.synchronize, // false in prod
         migrations: [__dirname + '/migrations/*.{ts,js}'],
