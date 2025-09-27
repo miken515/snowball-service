@@ -9,6 +9,12 @@ async function bootstrap() {
     .setTitle('Snowball service')
     .setDescription('BE service for Snowball app')
     .setVersion('1.0')
+    .addBearerAuth({
+      type: 'http',
+      scheme: 'bearer',
+      bearerFormat: 'JWT',
+      description: 'Paste Authentik access token', //TODO: update description
+    })
     .build();
   const documentFactory = () => SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api', app, documentFactory);
